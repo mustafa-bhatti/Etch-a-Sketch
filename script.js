@@ -22,29 +22,37 @@ newBtn.addEventListener("click", () => {
     }
 })
 
-function randomRGB() {
+function randomRGBA(opacity) {
     let red = Math.floor(Math.random() * 255);
     let blue = Math.floor(Math.random() * 255);
     let green = Math.floor(Math.random() * 255);
-    return "rgb(" + red + "," +blue + "," +green + ")";
+    return "rgba(" + red + "," +blue + "," +green + "," + opacity + ")";
 }
+console.log(randomRGBA(0.1));
 
-console.log(randomRGB());
 function createGrid(numberGrids) {
     let blockWidth = 1000/numberGrids;
-    for (let i = 0;i < numberGrids;i++) {
-        for (let j = 0;j < numberGrids;j++) {
-        const block = document.createElement("div");
-        block.classList.add("block");
-        block.style.width = blockWidth + "px";
-        block.addEventListener("mouseover",()=> {
-            block.style.backgroundColor = randomRGB();
+    let opacity = 0;
+    let totalBlocks = numberGrids * numberGrids;
+    for (let i = 0;i < totalBlocks;i++) {
+            const block = document.createElement("div");
+            block.classList.add("block");
+            block.style.width = blockWidth + "px";
+            block.addEventListener("mouseover",()=>
+             {
+                console.log(opacity);
+            block.style.backgroundColor = randomRGBA(opacity);
             block.classList.add("block-hovered");
-        })
-        gridContainer.appendChild(block);  
+            opacity+=0.1;
+            if (opacity > 1) {
+                opacity = 0;
+            }
+              })
+            gridContainer.appendChild(block);
+    
+
         }
     }
-}
 
 
 
