@@ -6,7 +6,7 @@ step4: assign them block class
 */
 
 const newBtn = document.querySelector(".new-btn");
-let numberGrids = 55;
+let numberGrids = 16;
 newBtn.addEventListener("click", () => {
     const userNumber = parseInt(prompt("Enter the number of blocks, (1-100). Defualt 16x16."));
     if (userNumber>0 && userNumber<=100) {
@@ -25,9 +25,14 @@ function createGrid(numberGrids) {
         const block = document.createElement("div");
         block.classList.add("block");
         block.style.width = blockWidth + "px";
-        gridContainer.appendChild(block);
+        block.addEventListener("mouseover",()=> {
+            block.classList.add("block-hovered");
+        })
+        gridContainer.appendChild(block);  
         }
     }
 }
+
+
 
 createGrid(numberGrids);

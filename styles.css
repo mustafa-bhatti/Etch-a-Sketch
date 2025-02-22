@@ -29,11 +29,16 @@ h1 {
 
 .block {
     border: 1px solid black;
-    background-color: aquamarine;
+    background-color: white;
     margin: -0.8px;
     /* height: 50%; */
 }
 
+.block-hovered {
+    background-color: black;
+
+
+}
 .new-btn {
     font-family: "Artifika ";
     padding: 10px;
