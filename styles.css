@@ -1,0 +1,18 @@
+body{
+    background-color: rgb(254, 255, 237);
+    color: rgb(17, 17, 17);
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.block-container{
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80rem;
+    height: 100rem;
+}
