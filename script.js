@@ -6,12 +6,17 @@ step4: assign them block class
 */
 
 const newBtn = document.querySelector(".new-btn");
+const gridContainer = document.querySelector(".block-container");
+
 let numberGrids = 16;
 newBtn.addEventListener("click", () => {
     const userNumber = parseInt(prompt("Enter the number of blocks, (1-100). Defualt 16x16."));
     if (userNumber>0 && userNumber<=100) {
         numberGrids = userNumber;
+        gridContainer.replaceChildren();
+        createGrid(numberGrids);
     }
+
     else {
         prompt("Wrong Input. Do it again. Range(1-100)");
     }
@@ -19,7 +24,6 @@ newBtn.addEventListener("click", () => {
 
 function createGrid(numberGrids) {
     let blockWidth = 1000/numberGrids;
-    const gridContainer = document.querySelector(".block-container");
     for (let i = 0;i < numberGrids;i++) {
         for (let j = 0;j < numberGrids;j++) {
         const block = document.createElement("div");
