@@ -5,4 +5,15 @@ step3: divide the number of block with width of the container(1000) ot get the w
 step4: assign them block class
 */
 
-const newBtn = document.querySelector(".new");
+const newBtn = document.querySelector(".new-btn");
+let numberGrids = 16;
+newBtn.addEventListener("click", () => {
+    const userNumber = parseInt(prompt("Enter the number of blocks, (1-100). Defualt 16x16."));
+    if (userNumber>0 && userNumber<=100) {
+        numberGrids = userNumber;
+    }
+    else {
+        prompt("Wrong Input. Do it again. Range(1-100)");
+    }
+
+})
