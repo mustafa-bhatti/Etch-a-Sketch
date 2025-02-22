@@ -22,6 +22,14 @@ newBtn.addEventListener("click", () => {
     }
 })
 
+function randomRGB() {
+    let red = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    return "rgb(" + red + "," +blue + "," +green + ")";
+}
+
+console.log(randomRGB());
 function createGrid(numberGrids) {
     let blockWidth = 1000/numberGrids;
     for (let i = 0;i < numberGrids;i++) {
@@ -30,6 +38,7 @@ function createGrid(numberGrids) {
         block.classList.add("block");
         block.style.width = blockWidth + "px";
         block.addEventListener("mouseover",()=> {
+            block.style.backgroundColor = randomRGB();
             block.classList.add("block-hovered");
         })
         gridContainer.appendChild(block);  
