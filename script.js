@@ -22,32 +22,41 @@ newBtn.addEventListener("click", () => {
     }
 })
 
-function randomRGBA(opacity) {
+function randomRGB() {
     let red = Math.floor(Math.random() * 255);
     let blue = Math.floor(Math.random() * 255);
     let green = Math.floor(Math.random() * 255);
-    return "rgba(" + red + "," +blue + "," +green + "," + opacity + ")";
+    return "rgb(" + red + "," +blue + "," +green + ")";
 }
-console.log(randomRGBA(0.1));
 
 function createGrid(numberGrids) {
     let blockWidth = 1000/numberGrids;
-    let opacity = 0;
+    let opacity = 0.20;
     let totalBlocks = numberGrids * numberGrids;
     for (let i = 0;i < totalBlocks;i++) {
             const block = document.createElement("div");
             block.classList.add("block");
             block.style.width = blockWidth + "px";
             block.addEventListener("mouseover",()=>
-             {
+             { 
+                const bgcolor = window.getComputedStyle(block).backgroundColor;
+                 if (bgcolor ==  "rgb(255, 255, 255)") {
+                    block.style.backgroundColor = randomRGB();
+                    block.style.opacity= 0.1;
+                    console.log("True");
+                }
+                else {
+                    let computedOpacity = window.getComputedStyle(block).opacity;
+                    console.log("computed : ",computedOpacity);
+
+                    computedOpacity = +computedOpacity + 0.1;
+                    console.log("opacity",computedOpacity);
+                    block.style.opacity =computedOpacity;
+                }
                 console.log(opacity);
-            block.style.backgroundColor = randomRGBA(opacity);
-            block.classList.add("block-hovered");
-            opacity+=0.1;
-            if (opacity > 1) {
-                opacity = 0;
-            }
+
               })
+
             gridContainer.appendChild(block);
     
 

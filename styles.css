@@ -28,17 +28,13 @@ h1 {
 }
 
 .block {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.185);
     background-color: white;
     margin: -0.8px;
     /* height: 50%; */
 }
 
-.block-hovered {
-    background-color: black;
 
-
-}
 .new-btn {
     font-family: "Artifika ";
     padding: 10px;
