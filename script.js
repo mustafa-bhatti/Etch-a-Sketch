@@ -43,17 +43,12 @@ function createGrid(numberGrids) {
                  if (bgcolor ==  "rgb(255, 255, 255)") {
                     block.style.backgroundColor = randomRGB();
                     block.style.opacity= 0.1;
-                    console.log("True");
                 }
                 else {
                     let computedOpacity = window.getComputedStyle(block).opacity;
-                    console.log("computed : ",computedOpacity);
-
                     computedOpacity = +computedOpacity + 0.1;
-                    console.log("opacity",computedOpacity);
                     block.style.opacity =computedOpacity;
                 }
-                console.log(opacity);
 
               })
 
@@ -66,3 +61,4 @@ function createGrid(numberGrids) {
 
 
 createGrid(numberGrids);
+
